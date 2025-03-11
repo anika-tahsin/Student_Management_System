@@ -1,0 +1,8 @@
+ Plan your design
+ 
+ if amount entered while registration mark the status as paid
+ 
+ def login(request):
+    # this will be the home page...when clicked on the link login field should show
+    # in login page no need for base.html,,,jst add same footer and registration page link
+    return render(request, 'login.html') 
