@@ -1,8 +1,45 @@
  Plan your design
  
- if amount entered while registration mark the status as paid
- 
- def login(request):
+ 1.  def login(request):
     # this will be the home page...when clicked on the link login field should show
-    # in login page no need for base.html,,,jst add same footer and registration page link
-    return render(request, 'login.html') 
+    # in login page no need for base.html,,,jst add same footer and registration page link and header of the wesite name
+	
+2. Registration: If not logged in
+=>Use HTML Forms to collect basic details such as:
+	Name, Email, Phone Number, Course. (Course fee)
+	> if amount entered while registration mark the status as paid
+	> in the model add created at field
+	
+=> Apply HTML Built-in Validation (e.g., required fields, proper email format).
+
+=> Message "Student added successfully"
+
+3. Student List Page : If logged in 
+
+=> Display all registered students using a template.
+		> add filter option (if possible)
+		> need a action colmn in the template with edit, delete button
+		> delete= Msg "Record deleted"
+		> edit = Msg "Record updated"
+=>Create reusable templates for listing CRUD data.
+
+
+4. CRUD Operations
+
+Create: Add a new student using Model Forms.
+
+Read: Display student details on a detailed view page.
+
+Update: Edit student details using GET & POST requests.
+
+Delete: Remove a student using a DELETE request.
+	
+5. Template Features
+
+Implement Template Inheritance to structure pages (base.html for navbar, footer, etc.).
+
+Use Template Blocks for customizing sections like forms, lists, and messages.
+
+6. Message Framework
+
+Show success/error messages (exmp., "Student added successfully", "Record deleted").
