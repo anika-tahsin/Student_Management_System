@@ -22,12 +22,35 @@
         <h1 class="text-lg font-bold text-orange-700">STUDENT MANAGEMENT SYSTEM</h1>
         <div class="flex space-x-6">
             <a href="#" class="font-bold text-blue-900">DASHBOARD</a>
-            <!-- <a href="#" class="font-bold text-green-600">REGISTRATION</a> -->
             <a href="#" class="font-bold text-blue-900">LOGOUT</a>
         </div>
     </nav>
 
+    <!-- message  -->
+    {% if messages %}
+    <div class="max-w-2xl mx-auto mt-6"></div>
+    <div id="alert-box" class="fixed left-1/2 transform -translate-x-1/2 w-full max-w-lg mb-6">
+        {% for message in messages %}
+            <div class="p-3 mb-4 text-white rounded-lg shadow-md text-center
+                {% if message.tags == 'success' %} bg-green-500 
+                {% elif message.tags == 'error' %} bg-red-500 
+                {% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
 
+    <script>
+        // Automatically remove messages after 3 seconds
+        setTimeout(function() {
+            document.getElementById("alert-box").style.opacity = "0"; // Fade out
+            setTimeout(function() {
+                document.getElementById("alert-box").remove(); // Remove from DOM
+            }, 500); // Wait for fade-out animation
+        }, 3000);
+    </script>
+    {% endif %}
+    
     <!-- Main Content -->
     <main class="flex flex-grow h-screen w-full mx-auto p-6">
         {% block content %}

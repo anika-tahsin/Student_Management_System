@@ -1,0 +1,51 @@
+
+[
+    {
+        "model": "students.course",
+        "pk": 1,
+        "fields": {
+            "name": "Database for Software Developers",
+            "fee": 6000.00
+        }
+    },
+    {
+        "model": "students.course",
+        "pk": 2,
+        "fields": {
+            "name": "App Development with Flutter",
+            "fee": 7000.00
+        }
+    },
+    {
+        "model": "students.course",
+        "pk": 3,
+        "fields": {
+            "name": "SQA: Manual & Automated Testing",
+            "fee": 9000.00
+        }
+    },
+    {
+        "model": "students.course",
+        "pk": 4,
+        "fields": {
+            "name": "Mastering DevOps: From Fundamentals to Advanced Practices",
+            "fee": 7000.00
+        }
+    },
+    {
+        "model": "students.course",
+        "pk": 5,
+        "fields": {
+            "name": "Full Stack Web Development with Python, Django & React",
+            "fee": 5000.00
+        }
+    },
+    {
+        "model": "students.course",
+        "pk": 6,
+        "fields": {
+            "name": "Full Stack Web Development with JavaScript (MERN)",
+            "fee": 5500.00
+        }
+    }
+]

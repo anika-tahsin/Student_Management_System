@@ -5,25 +5,8 @@
     <!-- Table Section -->
     <div class="bg-white shadow-md mx-6 mt-6 p-4 rounded-lg">
 
-        {{ request.user }}
-        <!-- Filters Section (Not Sticky) -->
-        <div class="flex justify-between items-center p-2 border-b border-gray-300">
-            <!-- Date Filters -->
-            <div class="flex space-x-4">
-                <div>
-                    <label class="font-bold text-blue-900 block">Start Date</label>
-                    <input type="text" value="06-FEB-2025" class="border p-2 text-center font-semibold rounded">
-                </div>
-                <div>
-                    <label class="font-bold text-blue-900 block">End Date</label>
-                    <input type="text" value="06-FEB-2025" class="border p-2 text-center font-semibold rounded">
-                </div>
-            </div>
-            <!-- Generate Button -->
-            <button class="bg-blue-600 text-white py-2 px-4 rounded font-bold">
-                Generate
-            </button>
-        </div>
+        <h1 class="font-bold text-blue-900 block mb-2">Welcome {{ request.user }}</h1>
+       
 
         <!-- Scrollable Table Wrapper -->
         <div class="overflow-y-auto max-h-64">
@@ -47,9 +30,10 @@
                                 Course <br>
                                 <select class="w-full p-1 text-sm border rounded">
                                     <option value="">All</option>
-                                    <option value="Transfer">Transfer</option>
-                                    <option value="Payment">Payment</option>
-                                    <option value="Refund">Refund</option>
+                                    {% for course in courses %}
+                                        <option value="{{ course.id }}">{{ course.name }}</option>
+                                    {% endfor %}
+                    
                                 </select>
                             </th>
 
@@ -61,7 +45,7 @@
                                
                             <select class="w-full p-1 text-sm border rounded">
                                 <option value="Success">Paid</option>
-                                <option value="Pending">Unpaid</option>
+                                <option value="Pending">EMI</option>
                             </select>
                         </th>
 
@@ -70,15 +54,19 @@
                 <tbody>
                
                   
+                    {% for student in students %}
                     <tr>
-                        <td class="border border-gray-300 px-4 py-2">Anika Tahsin</td>
-                        <td class="border border-gray-300 px-4 py-2">anikatahsin@gmaail.com</td>
-                        <td class="border border-gray-300 px-4 py-2">01232341425</td>
-                        <td class="border border-gray-300 px-4 py-2">Full stack web dev with django and react</td>
-                        <td class="border border-gray-300 px-4 py-2">06-Feb-2025</td>
-                        <td class="border border-gray-300 px-4 py-2 text-green-600">Paid</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ student.name }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ student.email }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ student.phone_no }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ student.course.name }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ student.created_at }}</td>
                     </tr>
-          
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center border border-gray-300 px-4 py-2">No students found.</td>
+                    </tr>
+                    {% endfor %}
                    
                 </tbody>
             </table>
